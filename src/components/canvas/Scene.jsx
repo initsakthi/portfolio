@@ -1,4 +1,4 @@
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Environment, Stars } from '@react-three/drei'
 import Island from './Island'
@@ -6,6 +6,9 @@ import Sky from './Sky'
 import Bird from './Bird'
 
 const Scene = ({ setLoading }) => {
+    const [isRotating, setIsRotating] = useState(false)
+    const [currentStage, setCurrentStage] = useState(null)
+
     useEffect(() => {
         // Simulate asset loading or wait for real assets
         const timer = setTimeout(() => {
@@ -35,6 +38,9 @@ const Scene = ({ setLoading }) => {
                 position={[0, -2, 0]}
                 rotation={[0.1, 4.7077, 0]}
                 scale={[0.2, 0.2, 0.2]}
+                isRotating={isRotating}
+                setIsRotating={setIsRotating}
+                setCurrentStage={setCurrentStage}
             />
 
             <Bird />

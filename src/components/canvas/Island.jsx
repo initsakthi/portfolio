@@ -3,10 +3,10 @@ import { useGLTF } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import { a } from '@react-spring/three'
 
-const Island = ({ isRotating, setIsRotating, setCurrentStage, ...props }) => {
+const Island = ({ isRotating = false, setIsRotating = () => { }, setCurrentStage = () => { }, ...props }) => {
     const islandRef = useRef()
     // Use a try-catch-like approach by checking if nodes exist, but useGLTF throws if file missing
-    const { nodes, materials, scene } = useGLTF('/assets/3d/island.glb')
+    const { nodes, materials, scene } = useGLTF(`${import.meta.env.BASE_URL}assets/3d/island.glb`)
     const { viewport } = useThree()
     const lastX = useRef(0)
     const rotationSpeed = useRef(0)

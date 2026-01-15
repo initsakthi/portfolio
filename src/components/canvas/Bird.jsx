@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger, MotionPathPlugin)
 
 const Bird = () => {
     const birdRef = useRef()
-    const { scene, animations } = useGLTF('/assets/3d/bird.glb')
+    const { scene, animations } = useGLTF(`${import.meta.env.BASE_URL}assets/3d/bird.glb`)
     const { actions } = useAnimations(animations, birdRef)
 
     // Play "Take 001" animation
